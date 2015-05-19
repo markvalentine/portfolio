@@ -95,7 +95,8 @@
     });
 
     $(document).scroll(function(){
-        height = $(this).scrollTop()
+        height = $(this).scrollTop();
+        h_4 = $('#4').offset().top -60;
         if(height >= initial_button_offset - 10){
             var half_width = $("body").width()/2;
             var next = half_width - 55;
