@@ -17,11 +17,11 @@
     var detached = false;
 
     //heights
-    var h_start = $('#top').offset().top - 60;
-    var h_bio = $('#bio').offset().top -60;
-    var h_1 = $('#1').offset().top -60;
+    var h_start = $('#top').offset().top - 75;
+    var h_bio = $('#bio').offset().top -75;
+    var h_1 = $('#1').offset().top -75;
 
-    var h_4 = $('#4').offset().top -60;
+    var h_4 = $('#4').offset().top -75;
 
     var height = $(this).scrollTop()
 
@@ -84,20 +84,16 @@
     $(window).resize(function(event){
         var width = $("body").width();
         $button_div.css({'width': width - 300});
-        h_start = $('#top').offset().top - 60;
-        h_bio = $('#bio').offset().top -60;
-        h_1 = $('#1').offset().top -60;
-        h_2 = $('#2').offset().top -60;
-        h_3 = $('#3').offset().top -60;
-        h_4 = $('#4').offset().top -60;
-        h_5 = $('#5').offset().top -60;
-        h_6 = $('#6').offset().top -60;
+        h_start = $('#top').offset().top - 75;
+        h_bio = $('#bio').offset().top -75;
+        h_1 = $('#1').offset().top -75;
+        h_4 = $('#4').offset().top -75;
     });
 
     $(document).scroll(function(){
         height = $(this).scrollTop();
-        h_4 = $('#4').offset().top -60;
-        if(height >= initial_button_offset - 10){
+        h_4 = $('#4').offset().top -75;
+        if(height >= initial_button_offset - 25){
             var half_width = $("body").width()/2;
             var next = half_width - 55;
             var prev = half_width + 5 ;
@@ -117,7 +113,7 @@
                 $scroll_prev.css({'position':'absolute', 'position': 'fixed', 'left': prev, 'top': '10px'});
             });
         }
-        if(height <initial_button_offset - 10){
+        if(height <initial_button_offset - 25){
             $scroll_prev.detach();
             $scroll_next.css({'position':'initial'});
             
@@ -152,7 +148,7 @@
 		var $target = $(id);
 
 		$('html, body').stop().animate({
-		    'scrollTop': $target.offset().top - 60
+		    'scrollTop': $target.offset().top - 75
 		}, 800, 'swing'/*, function(){
 			window.location.hash = id;
 		}*/);
