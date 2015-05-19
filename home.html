@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <!-- Meta, title, CSS, etc. -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Just messin around">
+      <meta name="keywords" content="HTML, CSS, JS, JavaScript, framework, bootstrap, front-end, frontend, web development">
+      <meta name="author" content="Mark Valentine">
+
+      <title>
+        Mark Valentine's Portfolio 
+      </title>
+
+      <link rel="shortcut icon" href="Assets/favicon.ico" />
+
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+      
+      <!-- My CSS -->
+      <link rel="stylesheet" href="style.css">
+
+      <!-- Optional theme -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+   </head>
+
+   <body>
+      <div class = 'button-back'>
+         <a data-toggle="collapse" href="#menu" aria-expanded="false" aria-controls="menu">
+           <span class="glyphicon glyphicon-menu-hamburger"></span>
+         </a>
+         <div class = "pull-right xsmall text-center">Mark Valentine<br/>2015</div>
+         <ul id = "menu" class="collapse list-unstyled">
+            <li> <a id = "scroll_start">Start</a></li>
+            <li> <a id = "scroll_bio">Bio</a></li>
+            <li> <a id = "scroll_1">Tiger</a></li>
+            <li> <a id = "scroll_2">Turkey Vulture</a></li>
+            <li> <a id = "scroll_3">Bear</a></li>
+            <li> <a id = "scroll_4">Manatee</a></li>
+            <li> <a id = "scroll_5">Wolf</a></li>
+            <li> <a id = "scroll_6">Penguin</a></li>
+         </ul>
+      </div>
+      <div class = 'button-back-place text-center'></div>
+      <div id = "top">
+         
+         <div id = "hs-contain">
+            <img id = "hs" class = "opaque center-block" src = "Assets/mv.gif">
+         </div>
+      </div>
+
+      <div class = "container-fluid">
+         <div class = "row">
+            
+            <div class = "col-md-12 col-sm-12 col-xs-12 text-center button-div">
+               <a id = "scroll_prev">
+                  <div class="circle">
+                    <span class="glyphicon glyphicon-menu-up down" aria-hidden="true"></span>
+                  </div>
+               </a>
+               <a id = "scroll_next">
+                  <div class="circle">
+                    <span class="glyphicon glyphicon-menu-down down" aria-hidden="true"></span>
+                  </div>
+               </a>
+            </div>
+         </div>
+         
+         
+         <div id = "bio" class = "row">
+            <div class = "col-md-4 col-sm-4">
+               <img id = "change" src = "Assets/deck.JPG" class = "portrait img-circle center-block">
+            </div>
+            <div class = "col-md-8 col-sm-8">
+               <div class = "bio-read">
+                  <h4> Mark Valentine </h4>
+                  <p> I'm a Stanford student graduating this June (2015) with a BS in Computer Science.  I love front-end web development, UI/UX, and playing around with javascript in my spare time (left or right click the logo above to see some quick js functions I wrote).<br/> I'm also an amateur zookeeper!  This is my website!
+                  </p>
+               </div>
+
+               <div class = "container-fluid">
+                  <div = class = "row text-center">
+                     <div class = "col-md-4 col-sm-4 col-xs-4">
+                        <a id = "1" class = "no-show-link" href = "http://en.wikipedia.org/wiki/Tiger">
+                           <div class = "thumbnail animal">
+                              <img src = "http://upload.wikimedia.org/wikipedia/commons/0/06/Makari_the_Tiger.jpg" class = "img-rounded croptop">
+                              <h4> Tiger </h4>
+                              <div class = "project-script">
+                                 <p class = "text-left">This one's a bengal tiger!<br/>Did you know that a full grown tiger can weigh up to 15 tons? I guess that's why they call them "Nature's William Taft"!</p>
+                              </div>
+                           </div>
+                        </a>
+                        <a id = "4" class = "no-show-link" href = "http://en.wikipedia.org/wiki/Manatee">
+                           <div class = "thumbnail animal">
+                              <img src = "https://pbs.twimg.com/profile_images/1154237641/BabyManatee_400x400.jpg" class = "img-rounded croptop">
+                              <h4> Manatee </h4>
+                              <div class = "project-script">
+                                 <p class = "text-left">This one's a manatee!<br/>Did you know that each manatees are the only creature that can accurately predict the future?  Too bad they can't talk!</p>
+                              </div>
+                           </div>
+                        </a>
+                     </div>
+                     <div class = "col-md-4 col-sm-4 col-xs-4">
+                        <a id = "2" class = "no-show-link" href = "http://en.wikipedia.org/wiki/Turkey_Vulture">
+                           <div class = "thumbnail animal">
+                              <img src = "Assets/turkey_vulture.jpg" class = "img-rounded croptop">
+                              <h4> Turkey Vulture </h4>
+                              <div class = "project-script">
+                                 <p class = "text-left">This one's a turkey vulture!<br/>Did you know that Benjamin Franklin kept a flock of turkey vultures to dispose of the victims of his many failed expiriments??  Now THAT'S history!!</p>
+                              </div>
+                           </div>
+                        </a>
+                        <a id = "5" class = "no-show-link" href = "http://en.wikipedia.org/wiki/Wolf">
+                           <div class = "thumbnail animal">
+                              <img src = "https://static.fimfiction.net/images/avatars/18684_256.jpg?0" class = "img-rounded croptop">
+                              <h4> Wolf </h4>
+                              <div class = "project-script">
+                                 <p class = "text-left">This one's a gray wolf!<br/>Did you know that a juvenille wolf doesn't grow his tail until his 13th birthday?  I bet you didn't!</p>
+                              </div>
+                           </div>
+                        </a>
+                     </div>
+                     <div class = "col-md-4 col-sm-4 col-xs-4">
+                        <a id = "3" class = "no-show-link" href = "http://en.wikipedia.org/wiki/Bear">
+                           <div class = "thumbnail animal">
+                              <img src = "http://i.telegraph.co.uk/multimedia/archive/02472/blonde-bear-cub_2472649k.jpg" class = "img-rounded croptop">
+                              <h4> Bear </h4>
+                              <div class = "project-script">
+                                 <p class = "text-left">Those are bear cubs!!<br/>There's nothing like a bear cub steak to satisfy your never ending thirst for blood!  James Cameron swears by them!</p>
+                              </div>
+                           </div>
+                        </a>
+                        <a id = "6" class = "no-show-link" href = "http://en.wikipedia.org/wiki/Penguin">
+                           <div class = "thumbnail animal">
+                              <img src = "http://www.penguin-pictures.net/chickpenguin.jpg" class = "img-rounded croptop">
+                              <h4> Penguin </h4>
+                              <div class = "project-script">
+                                 <p class = "text-left">This one's a penguin chick!<br/>Did you know that under a pengin's feathered coat there is another made entirely of bottlecaps?  Wow!</p>
+                              </div>
+                           </div>
+                        </a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+     
+
+      <div class = "text-center">
+         <p><img class = "center-block small-logo" src = "Assets/mv-black.gif">Mark Valentine<br/>Email: <a href="mailto:markvalentine@stanford.edu">markvalentine@stanford.edu</a><br/> Phone: <a href="tel:+15309132368">+1 (530) 913-2368</a><br/></p>
+      </div>
+
+
+      <!-- Latest compiled and minified JQuery -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+      <!-- Latest compiled and minified JavaScript -->
+      <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+      <!-- My Javascript file -->
+      <script type="text/javascript" src="script.js"></script>
+
+
+   </body>
+</html>
