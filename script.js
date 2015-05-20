@@ -125,7 +125,7 @@
                 $scroll_next.css({'position':'initial'});
             });
         }
-        if(height >= h_4 - 5){
+        if(height >= h_4 - 5 || height >= $(document).height() - $(window).height()){
             
             $scroll_next.css({'opacity': '0'});
             detached = true;
