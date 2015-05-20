@@ -3,7 +3,7 @@
     var initial_button_offset = $('#scroll_next').offset().top;
     var $div_back = $(".button-back");
     var $scroll_prev = $('#scroll_prev');
-    $scroll_prev.detach();
+    
     var $scroll_next = $('#scroll_next');
     var $button_div = $('.button-div');
     var width = $("body").width();
@@ -24,6 +24,10 @@
     var h_4 = $('#4').offset().top -75;
 
     var height = $(this).scrollTop()
+
+    if(height <initial_button_offset - 25){
+        $scroll_prev.detach();
+    }
 
     $(document).scroll(function(event){
 
