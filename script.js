@@ -224,7 +224,7 @@
 	var rollingBall = document.getElementById('hs');
 	var ballDiv = document.getElementById('hs-contain');
 
-	rollingBall.addEventListener('click', function(event){
+	rollingBall.addEventListener('contextmenu', function(event){
         event.preventDefault()
         var height = $(rollingBall).height();
         var width = $(ballDiv).width();
@@ -257,7 +257,7 @@
         
     });
 
-    rollingBall.addEventListener('mouseover', function(event){
+    rollingBall.addEventListener('click', function(event){
     	event.preventDefault();
         var height = $(rollingBall).height();
         var width = $(ballDiv).width();
@@ -297,7 +297,7 @@
         
     });
 
-    rollingBall.addEventListener('contextmenu', function(event){
+    rollingBall.addEventListener('', function(event){
         event.preventDefault();
         var height = $(rollingBall).height();
         var width = $(ballDiv).width();
