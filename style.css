@@ -33,15 +33,16 @@ a:hover{
 	height: 50px;
 	width: 50px;
 	border-radius: 50px;
+	padding-top: 16px;
+}
+
+.circle-margin{
+	margin: 5px;
 }
 
 .circle:hover{
 	background-color: #BCBAB7;
 	cursor:pointer;
-}
-
-.down{
-	margin-top: 16px;
 }
 
 #hs{
