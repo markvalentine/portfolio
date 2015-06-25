@@ -116,6 +116,9 @@
       <!-- My Javascript file -->
 
       <script type="text/javascript">
+
+         var event = ('ontouchstart' in window) ? 'click' : 'mouseenter mouseleave';
+
          var $box = $('.split-box');
          var $clicker = $('#0');
          var count = 0
