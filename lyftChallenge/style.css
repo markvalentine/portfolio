@@ -1,0 +1,49 @@
+body{
+  margin: 0px;
+  padding: 0px;
+  font-family: sans-serif;
+}
+
+#key{
+  position: fixed;
+  left: 10px;
+  top: 10px;
+  z-index: 20;
+  background: rgba(83, 101, 117, .7);
+  padding: 15px;
+  border-radius: 5px;
+  color: white;
+}
+
+.pink-button{
+  color:white;
+  background: #EA2C91;
+  margin: 10px auto 10px auto;
+  padding: 5px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+html, body,#map-canvas {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 0;
+}
+
+#prompt{
+  color: white;
+  background-color: rgba(83, 101, 117, .7);
+  position: fixed;
+  top: 10px; left: 200px; font-size: 20px;
+  z-index: 100;
+  border-radius: 5px;
+  margin: 0px 10px 0px 0px;
+  letter-spacing: 2px;
+}
+
+#next{
+  color: #EA2C91;
+}

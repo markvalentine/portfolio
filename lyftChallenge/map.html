@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lyft Code Challege</title>
+    <!-- My CSS -->
+    <link rel="stylesheet" href="style.css">
+
+  </head>
+  <body>
+
+    <div id = "key">
+      <div style = "font-size: 20px; letter-spacing: 3px; text-align: center;">
+        LYFT CODE<br/>CHALLENGE
+      </div>
+      <div id = "start" class = "pink-button">
+        <h3>START</h3>
+      </div>
+      <div class = "pink-button" id = "clear">Clear</div>
+      <form action="">
+        <input type="radio" name="eval" value="distance" id="distance" checked = "checked">Shortest Route<br/>
+        <input type="radio" name="eval" value="duration" id="duration">Fastest Route
+      </form><br/>
+      <form action="">
+        <input type="radio" name="model" value="driver" id="driver" checked = "checked">Driver-Driver<br/>
+        <input type="radio" name="model" value="passenger" id="passenger">Driver-Passenger
+      </form><br/>
+      <div class = "pink-button" id = "help">Tutorial</div>
+    </div>
+
+    <p id = "prompt"></p>
+    <div id="map-canvas"></div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+    <!-- My Javascript file -->
+    <script type="text/javascript" src="script.js"></script>
+
+  </body>
+</html>
