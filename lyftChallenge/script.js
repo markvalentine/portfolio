@@ -59,51 +59,9 @@ function initialize() {
   var prompt = document.getElementById('prompt');
   var locations = [];
   var markers = [];
+  var mapListener;
 
-  function addLocation(location){
-      locations[index] = location;
-      markers[index] = new google.maps.Marker({
-              position: location,
-              label: labels[index],
-              map: map
-      });
-      index++;
-      prompt.innerHTML = prompts[index];
-  }
-
-  function calcTwoRoutes(locations){
-    directionsDisplay.setMap(map);
-    var start = locations[0];
-    var waypts = [
-          {location: locations[2], stopover:true},
-          {location: locations[3], stopover:true},
-          {location: locations[1], stopover:true}
-    ];
-    var end = locations[0];
-    var request = {
-          origin: start,
-          destination: end,
-          waypoints: waypts,
-          optimizeWaypoints: false,
-          travelMode: google.maps.TravelMode.DRIVING
-    };
-    directionsService.route(request, function(response, status) {
-      if (status == google.maps.DirectionsStatus.OK) {
-        var legs = response.routes[0].legs;
-        var driver = "";
-        if(legs[1].distance.value <= legs[3].distance.value){
-          driver = "Driver one";
-          legs.splice(3, 1);
-        }else{
-          driver = "Driver two";
-          legs.splice(1, 1);
-        }
-        directionsDisplay.setDirections(response);
-        prompt.innerHTML = driver + " has the more efficient route";
-      }
-    });
-  }
-
+  //needs refactoring!!!
   function calcAllRoutes(locations){
     var start1 = locations[0];
     var waypts1 = [
@@ -213,26 +171,66 @@ function initialize() {
       });
   }
 
-  function clear(){
-    for (var i = 0; i < markers.length; i++) {
-      markers[i].setMap(null);
+  //compares the two legs and displays the appropriate route
+  function getFasterRoute(response){
+    var legs = response.routes[0].legs;
+    var driver = "";
+    if(legs[1].distance.value <= legs[3].distance.value){
+      driver = "Driver one";
+      legs.splice(3, 1);
+    }else{
+      driver = "Driver two";
+      legs.splice(1, 1);
     }
-    directionsDisplay.setMap(null);
-    markers = [];
+    directionsDisplay.setDirections(response);
+    prompt.innerHTML = driver + " has the more efficient route";
   }
 
-  function start(event){
-    event.preventDefault();
-    document.getElementById('start').removeEventListener('click', start);
-    clear();
-    index = 0;
-    prompt.innerHTML = "Click map for location A";
-    prompt.style.padding = "15px";
-    
-    var clicklisten = google.maps.event.addListener(map, 'click', function( event ){
-      addLocation(event.latLng);
+  // for the driver-driver model
+  // calculates the two routes by making a single request to the Google Maps API
+  // and then comparing the legs AB and CD of the trip to determine which driver
+  // would have the more efficient detour
+  function calcTwoRoutes(locations){
+    directionsDisplay.setMap(map);
+    var start = locations[0];
+    var waypts = [
+          {location: locations[2], stopover:true},
+          {location: locations[3], stopover:true},
+          {location: locations[1], stopover:true}
+    ];
+    var end = locations[0];
+
+    var request = {
+          origin: start,
+          destination: end,
+          waypoints: waypts,
+          optimizeWaypoints: false,
+          travelMode: google.maps.TravelMode.DRIVING
+    };
+    directionsService.route(request, function(response, status) {
+      if (status == google.maps.DirectionsStatus.OK) {
+        getFasterRoute(response);
+      }
+    });
+  }
+
+  //adds a marker to the map and records location
+  function addLocation(location){
+      locations[index] = location;
+      markers[index] = new google.maps.Marker({
+              position: location,
+              label: labels[index],
+              map: map
+      });
+      index++;
+      prompt.innerHTML = prompts[index];
+  }
+
+  //gets the 4 locations then calculates the fastest route
+  function getLocations(event){
+    addLocation(event.latLng);
       if(index == 4){
-        google.maps.event.removeListener(clicklisten);
+        google.maps.event.removeListener(mapListener);
         document.getElementById('start').addEventListener('click', start);
         if(document.getElementById('passenger').checked){
           calcAllRoutes(locations);
@@ -240,9 +238,31 @@ function initialize() {
           calcTwoRoutes(locations);
         }
       }
-    });
   }
 
+  //clears map
+  function clear(){
+    for (var i = 0; i < markers.length; i++) {
+      markers[i].setMap(null);
+    }
+    directionsDisplay.setMap(null);
+    markers = [];
+    document.getElementById('start').addEventListener('click', start);
+  }
+
+  // On clicking the start button, initializes prompt and gets locations.
+  function start(event){
+    event.preventDefault();
+    clear();
+    document.getElementById('start').removeEventListener('click', start);
+    index = 0;
+    prompt.innerHTML = "Click map for location A";
+    prompt.style.padding = "15px";
+    
+    mapListener = google.maps.event.addListener(map, 'click', getLocations);
+  }
+
+  // index and actual prompts for the tutorial
   var infoIndex = 0;
   var informations = [
       "This program will calculate the shortest detour distace for two drivers, the first going from point A to point B, and the second going from point C to point D. <br/><div style = 'text-align: right;''>Click to Continue...</div>",
@@ -254,6 +274,7 @@ function initialize() {
       "Click start to begin!"
   ]
 
+  // Gets and displays the next prompt of the tutorial.
   function nextPrompt(event){
     prompt.innerHTML = informations[infoIndex];
     infoIndex ++;
@@ -264,6 +285,7 @@ function initialize() {
     }
   }
 
+  // Takes you through the whole tutorial.
   function help(event){
     event.preventDefault();
     infoIndex = 0;
@@ -274,6 +296,7 @@ function initialize() {
     prompt.addEventListener('click', nextPrompt);
   }
 
+  // click listeners for buttons
   document.getElementById('start').addEventListener('click', start);
   document.getElementById('help').addEventListener('click', help);
   document.getElementById('clear').addEventListener('click', function(event){
