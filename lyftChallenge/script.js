@@ -104,24 +104,6 @@ function initialize() {
     });
   }
 
-  function showRoute(start, waypts, end, driver){
-    directionsDisplay.setMap(map);
-    var request = {
-          origin: start,
-          destination: end,
-          waypoints: waypts,
-          optimizeWaypoints: true,
-          travelMode: google.maps.TravelMode.DRIVING
-      };
-      directionsService.route(request, function(response, status) {
-        if (status == google.maps.DirectionsStatus.OK) {
-          directionsDisplay.setDirections(response);
-          prompt.innerHTML = driver + " has the more efficient route";
-
-        }
-      });
-  }
-
   function calcAllRoutes(locations){
     var start1 = locations[0];
     var waypts1 = [
@@ -173,27 +155,27 @@ function initialize() {
                 // CA AD DB
                 // CA AB BD
                 if(document.getElementById('duration').checked){
-                  var AB = {dist: legs1[0].duration.value, start: locations[0], end: locations[1]};
-                  var AC = {dist: legs1[4].duration.value, start: locations[0], end: locations[2]};
-                  var AD = {dist: legs2[1].duration.value, start: locations[0], end: locations[3]};
-                  var BC = {dist: legs1[1].duration.value, start: locations[1], end: locations[2]};
-                  var BD = {dist: legs2[3].duration.value, start: locations[1], end: locations[3]};
-                  var CA = {dist: legs2[0].duration.value, start: locations[2], end: locations[0]};
-                  var CB = {dist: legs1[5].duration.value, start: locations[2], end: locations[1]};
-                  var CD = {dist: legs1[2].duration.value, start: locations[2], end: locations[3]};
-                  var DA = {dist: legs1[3].duration.value, start: locations[3], end: locations[0]};
-                  var DB = {dist: legs2[2].duration.value, start: locations[3], end: locations[1]};
+                  var AB = {dist: legs1[0].duration.value, start: locations[0], end: locations[1], leg: legs1[0]};
+                  var AC = {dist: legs1[4].duration.value, start: locations[0], end: locations[2], leg: legs1[4]};
+                  var AD = {dist: legs2[1].duration.value, start: locations[0], end: locations[3], leg: legs2[1]};
+                  var BC = {dist: legs1[1].duration.value, start: locations[1], end: locations[2], leg: legs1[1]};
+                  var BD = {dist: legs2[3].duration.value, start: locations[1], end: locations[3], leg: legs2[3]};
+                  var CA = {dist: legs2[0].duration.value, start: locations[2], end: locations[0], leg: legs2[0]};
+                  var CB = {dist: legs1[5].duration.value, start: locations[2], end: locations[1], leg: legs1[5]};
+                  var CD = {dist: legs1[2].duration.value, start: locations[2], end: locations[3], leg: legs1[2]};
+                  var DA = {dist: legs1[3].duration.value, start: locations[3], end: locations[0], leg: legs1[3]};
+                  var DB = {dist: legs2[2].duration.value, start: locations[3], end: locations[1], leg: legs2[2]};
                 }else{
-                  var AB = {dist: legs1[0].distance.value, start: locations[0], end: locations[1]};
-                  var AC = {dist: legs1[4].distance.value, start: locations[0], end: locations[2]};
-                  var AD = {dist: legs2[1].distance.value, start: locations[0], end: locations[3]};
-                  var BC = {dist: legs1[1].distance.value, start: locations[1], end: locations[2]};
-                  var BD = {dist: legs2[3].distance.value, start: locations[1], end: locations[3]};
-                  var CA = {dist: legs2[0].distance.value, start: locations[2], end: locations[0]};
-                  var CB = {dist: legs1[5].distance.value, start: locations[2], end: locations[1]};
-                  var CD = {dist: legs1[2].distance.value, start: locations[2], end: locations[3]};
-                  var DA = {dist: legs1[3].distance.value, start: locations[3], end: locations[0]};
-                  var DB = {dist: legs2[2].distance.value, start: locations[3], end: locations[1]};
+                  var AB = {dist: legs1[0].distance.value, start: locations[0], end: locations[1], leg: legs1[0]};
+                  var AC = {dist: legs1[4].distance.value, start: locations[0], end: locations[2], leg: legs1[4]};
+                  var AD = {dist: legs2[1].distance.value, start: locations[0], end: locations[3], leg: legs2[1]};
+                  var BC = {dist: legs1[1].distance.value, start: locations[1], end: locations[2], leg: legs1[1]};
+                  var BD = {dist: legs2[3].distance.value, start: locations[1], end: locations[3], leg: legs2[3]};
+                  var CA = {dist: legs2[0].distance.value, start: locations[2], end: locations[0], leg: legs2[0]};
+                  var CB = {dist: legs1[5].distance.value, start: locations[2], end: locations[1], leg: legs1[5]};
+                  var CD = {dist: legs1[2].distance.value, start: locations[2], end: locations[3], leg: legs1[2]};
+                  var DA = {dist: legs1[3].distance.value, start: locations[3], end: locations[0], leg: legs1[3]};
+                  var DB = {dist: legs2[2].distance.value, start: locations[3], end: locations[1], leg: legs2[2]};
                 }
 
                 var min = [AB, BC, CD, 'Driver one'];
@@ -221,9 +203,10 @@ function initialize() {
         
                 }
 
-                waypts = [{location: min[1].start, stopover:true}, {location: min[1].end, stopover:true}];
-
-                showRoute(min[0].start, waypts, min[2].end, min[3]);
+                directionsDisplay.setMap(map);
+                response2.routes[0].legs = [min[0].leg, min[1].leg, min[2].leg]
+                directionsDisplay.setDirections(response2);
+                prompt.innerHTML = min[3] + " has the more efficient route";
               }
             });
         }
