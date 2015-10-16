@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+a {
+    text-decoration: none;
+    display: block;
+}
+div{
+  text-align: center;
+  padding: 60px 0px;
+  font-size: 28px;
+  font-family: 'Open Sans', sans-serif;
+  color: #EEEEEE;
+  letter-spacing: 1px;
+  background-color: #C45F5F;
+}
