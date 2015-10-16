@@ -90,8 +90,8 @@ function initialize() {
           optimizeWaypoints: false,
           travelMode: google.maps.TravelMode.DRIVING
       };
-      directionsService.route(request1, function(response1, status) {
-        if (status == google.maps.DirectionsStatus.OK) {
+      directionsService.route(request1, function(response1, status1) {
+        if (status1 == google.maps.DirectionsStatus.OK) {
           var legs1 = response1.routes[0].legs;
 
           var request2 = {
@@ -101,8 +101,8 @@ function initialize() {
                 optimizeWaypoints: false,
                 travelMode: google.maps.TravelMode.DRIVING
             };
-            directionsService.route(request2, function(response2, status) {
-              if (status == google.maps.DirectionsStatus.OK) {
+            directionsService.route(request2, function(response2, status2) {
+              if (status2 == google.maps.DirectionsStatus.OK) {
                 var legs2 = response2.routes[0].legs;
 
                 // 6 options for route:
@@ -143,19 +143,23 @@ function initialize() {
                   min = [AC, CB, BD, 'Driver one'];
                   minDist = AC.dist + CB.dist + BD.dist;
                   
-                }if((AC.dist + CD.dist + DB.dist) <= minDist){
+                }
+                if((AC.dist + CD.dist + DB.dist) <= minDist){
                   min = [AC, CD, DB, 'Driver one'];
                   minDist = AC.dist + CD.dist + DB.dist;
                  
-                }if((CD.dist + DA.dist + AB.dist) <= minDist){
+                }
+                if((CD.dist + DA.dist + AB.dist) <= minDist){
                   min = [CD, DA, AB, 'Driver two'];
                   minDist = CD.dist + DA.dist + AB.dist;
                  
-                }if((CA.dist + AD.dist + DB.dist) <= minDist){
+                }
+                if((CA.dist + AD.dist + DB.dist) <= minDist){
                   min = [CA, AD, DB, 'Driver two'];
                   minDist = CA.dist + AD.dist + DB.dist;
               
-                }if((CA.dist + AB.dist + BD.dist) <= minDist){
+                }
+                if((CA.dist + AB.dist + BD.dist) <= minDist){
                   min = [CA, AB, BD, 'Driver two'];
                   minDist = CA.dist + AB.dist + BD.dist;
         
@@ -165,8 +169,12 @@ function initialize() {
                 response2.routes[0].legs = [min[0].leg, min[1].leg, min[2].leg]
                 directionsDisplay.setDirections(response2);
                 prompt.innerHTML = min[3] + " has the more efficient route";
+              }else{
+                prompt.innerHTML = "ERROR: " + status2;
               }
             });
+        }else{
+          prompt.innerHTML = "ERROR: " + status1;
         }
       });
   }
@@ -182,6 +190,7 @@ function initialize() {
       driver = "Driver two";
       legs.splice(1, 1);
     }
+    directionsDisplay.setMap(map);
     directionsDisplay.setDirections(response);
     prompt.innerHTML = driver + " has the more efficient route";
   }
@@ -191,7 +200,6 @@ function initialize() {
   // and then comparing the legs AB and CD of the trip to determine which driver
   // would have the more efficient detour
   function calcTwoRoutes(locations){
-    directionsDisplay.setMap(map);
     var start = locations[0];
     var waypts = [
           {location: locations[2], stopover:true},
@@ -210,6 +218,8 @@ function initialize() {
     directionsService.route(request, function(response, status) {
       if (status == google.maps.DirectionsStatus.OK) {
         getFasterRoute(response);
+      }else{
+        prompt.innerHTML = "ERROR: " + status;
       }
     });
   }
