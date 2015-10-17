@@ -28,3 +28,9 @@ div.index{
   color: #5a5a5a;
   background-color: #FFFFFF;
 }
+
+body.mobile{
+  max-width: 320px;
+  border: 2px solid #c4c4c4;
+  margin: 0 auto;
+}
