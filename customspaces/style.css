@@ -34,3 +34,15 @@ body.mobile{
   border: 2px solid #c4c4c4;
   margin: 0 auto;
 }
+
+div.index{
+  text-align:left;
+  padding: 40px 80px;
+}
+
+@media only screen and (max-width: 500px){
+  div.index{
+    text-align:left;
+    padding: 40px 20px;
+  }
+}
