@@ -19,7 +19,7 @@ $(document).ready(function() {
             var thisStory = snapshot.val();
             console.log(thisStory.text);
             var storyString = "<div class=\"story\"><h3>"+thisStory.title+"</h3><p>"+thisStory.text.replace(/\n/g, "<br/>")+"</p></div>";
-            allStories.append(storyString);
+            allStories.prepend(storyString);
         });
     }
 
