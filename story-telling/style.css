@@ -1,0 +1,147 @@
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: #EEEEEE;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+header {
+    box-sizing: border-box;
+    text-align: left;
+    color: #FFFFFF;
+    padding: 15px 20px;
+    background-color: #8EC6BA;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 54px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.prompt {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 680px;
+
+    margin: 80px auto 0 auto;
+
+    padding: 12px 20px 13px 20px;
+    background-color: #F48181;
+    color: #FFFFFF;
+}
+
+h2 {
+    font-weight: 300;
+    font-size: 24px;
+
+    margin: 0;
+    padding: 0;
+}
+
+textarea#title {
+    box-sizing: border-box;
+    margin: 10px auto;
+    padding: 17px 20px;
+    width: 100%;
+    max-width: 680px;
+    height: 54px;
+    text-align: left;
+
+    display: block;
+
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: #4A4A4A;
+
+    border: none;
+    overflow: auto;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+textarea#story {
+    margin: 10px auto;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 680px;
+    min-height: 375px;
+    text-align: left;
+
+    display: block;
+
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: #4A4A4A;
+
+    border: none;
+    overflow: auto;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+button {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 680px;
+    background-color: #DADADA;
+    padding: 12px 20px 13px 20px;
+
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: #747474;
+    text-align: center;
+
+    border: none;
+    overflow: auto;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+button:hover {
+    background-color: #CACACA;
+}
+
+.all-stories {
+    margin-top: 60px;
+}
+
+.story {
+    box-sizing: border-box;
+    text-align: left;
+    width: 100%;
+    max-width: 680px;
+    background-color: #FFFFFF;
+    padding: 30px 20px;
+    margin: 30px auto;
+
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: #4A4A4A;
+}
+
+.story h3 {
+    font-weight: 400;
+}
