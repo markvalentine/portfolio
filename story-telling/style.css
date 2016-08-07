@@ -24,10 +24,15 @@ header {
 a {
     color: inherit;
     text-decoration: none;
+    margin: 0 20px;
 }
 
 a:hover {
     text-decoration: underline;
+}
+
+.centered {
+    text-align: center;
 }
 
 .prompt {
@@ -80,7 +85,32 @@ textarea#story {
     box-sizing: border-box;
     width: 100%;
     max-width: 680px;
-    min-height: 375px;
+    min-height: 300px;
+    text-align: left;
+
+    display: block;
+
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: #4A4A4A;
+
+    border: none;
+    overflow: auto;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+textarea#name {
+    box-sizing: border-box;
+    margin: 10px auto;
+    padding: 18px 20px;
+    width: 100%;
+    max-width: 680px;
+    height: 54px;
     text-align: left;
 
     display: block;
@@ -98,7 +128,7 @@ textarea#story {
     box-shadow: none;
 }
 
-button {
+button#submit {
     box-sizing: border-box;
     width: 100%;
     max-width: 680px;
@@ -119,12 +149,79 @@ button {
     box-shadow: none;
 }
 
-button:hover {
+button#submit:hover {
     background-color: #CACACA;
 }
 
+button#uploadImage {
+    box-sizing: border-box;
+    width: 200px;
+    background-color: #F48181;
+    padding: 18px 20px 19px 20px;
+
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: #FFFFFF;
+    text-align: center;
+
+    border: none;
+    overflow: auto;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+    vertical-align: top;
+}
+
+button#uploadImage:hover {
+    background-color: #C36767;
+}
+
+.input-overlay {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto;
+    position: relative;
+    top: -20px;
+}
+
+.fileinput {
+    position: absolute;
+    z-index: 100;
+    height: 20px;
+    top: 16px;
+    left: 10px;
+}
+
+.filename {
+    box-sizing: border-box;
+    width: 480px;
+    background-color: #FFFFFF;
+    padding: 18px 20px;
+    display: inline-block;
+
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: #4A4A4A;
+    text-align: left;
+
+    border: none;
+    overflow: auto;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+
+    vertical-align: top;
+}
+
 .all-stories {
-    margin-top: 60px;
+    margin-top: 80px;
 }
 
 .story {
@@ -137,11 +234,38 @@ button:hover {
     margin: 30px auto;
 
     font-size: 18px;
+    line-height: 28px;
     font-weight: 300;
     letter-spacing: 1px;
     color: #4A4A4A;
 }
 
+.story img {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
 .story h3 {
     font-weight: 400;
+}
+
+.story .name {
+    text-align: right;
+    width: 100%;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: #777777;
+}
+
+#uploaded-image {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 680px;
+    margin: 30px auto;
+}
+
+#uploaded-image img {
+    max-width: 100%;
 }

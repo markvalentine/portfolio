@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Give me yo stories</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <link href='https://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="style.css">
+        <script src='https://cdn.firebase.com/js/client/2.4.0/firebase.js'></script>
+    </head>
+
+    <body>
+        <header>
+            <a href="http://www.zinnia.life">Zinnia</a>
+            <a href="write-a-story.html">Write a story</a>
+            <a href="index.html">Stories</a>
+        </header>
+
+        <div class="prompt">
+            <h2>Tell me a story</h2>
+        </div>
+        <textarea id="title" placeholder="Give your story a title"></textarea>
+        <textarea id="name" placeholder="Your name here (don't worry this is optional)"></textarea>
+        <textarea id="story" placeholder="Your story goes here"></textarea>
+        <div id="uploaded-image"></div>
+        <form id="image-upload">
+        	<div class="input-overlay">
+        		<div class="filename">&nbsp;</div><button id="uploadImage" type="submit">Upload Image</button>
+        		<div class="fileinput"><input type="file" name="file" id="fileinput"></div>
+        	</div>
+        </form>
+
+        <button id="submit">Submit</button>
+
+
+        <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
+        <!-- Latest compiled and minified JQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <!-- My Javascript file -->
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>
