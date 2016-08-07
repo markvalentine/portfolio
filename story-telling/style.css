@@ -12,7 +12,7 @@ header {
     box-sizing: border-box;
     text-align: left;
     color: #FFFFFF;
-    padding: 15px 20px;
+    padding: 0 20px;
     background-color: #8EC6BA;
     position: fixed;
     top: 0;
@@ -29,6 +29,13 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+header a {
+    font-size: 16px;
+    display: inline-block;
+    padding: 18px 10px 17px 10px;
+    margin: 0;
 }
 
 .centered {
@@ -268,4 +275,20 @@ button#uploadImage:hover {
 
 #uploaded-image img {
     max-width: 100%;
+}
+
+@media only screen and (max-width: 680px) {
+
+    .filename {
+        width: 100%;
+        margin-bottom: 0px;
+        display: block;
+    }
+
+    button#uploadImage {
+        width: 100%;
+        margin-top: 0px;
+        display: block;
+    }
+
 }
