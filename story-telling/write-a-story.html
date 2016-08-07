@@ -13,22 +13,23 @@
         <header>
             <a href="http://www.zinnia.life">Zinnia</a>
             <a href="write-a-story.html">Write a story</a>
-            <a href="index.html">Stories</a>
+            <a href="../story-telling">Stories</a>
         </header>
 
         <div class="prompt">
             <h2>Tell me a story</h2>
         </div>
         <textarea id="title" placeholder="Give your story a title"></textarea>
-        <textarea id="name" placeholder="Your name here (don't worry this is optional)"></textarea>
-        <textarea id="story" placeholder="Your story goes here"></textarea>
-        <div id="uploaded-image"></div>
+        <textarea id="name" placeholder="Your name here (don't worry, it's optional)"></textarea>
         <form id="image-upload">
-        	<div class="input-overlay">
-        		<div class="filename">&nbsp;</div><button id="uploadImage" type="submit">Upload Image</button>
-        		<div class="fileinput"><input type="file" name="file" id="fileinput"></div>
-        	</div>
+            <div class="input-overlay">
+                <div class="filename">&nbsp;</div><button id="uploadImage" type="submit">Upload Image</button>
+                <div class="fileinput"><input type="file" name="file" id="fileinput"></div>
+            </div>
         </form>
+        <div id="uploaded-image">
+        </div>
+        <textarea id="story" placeholder="Your story goes here"></textarea>
 
         <button id="submit">Submit</button>
 

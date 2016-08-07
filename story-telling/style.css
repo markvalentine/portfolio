@@ -19,6 +19,7 @@ header {
     left: 0;
     width: 100%;
     height: 54px;
+    z-index: 200;
 }
 
 a {
@@ -87,8 +88,8 @@ textarea#title {
 }
 
 textarea#story {
-    margin: 10px auto;
-    padding: 30px 20px;
+    margin: 0px auto 10px auto;
+    padding: 0px 20px 30px 20px;
     box-sizing: border-box;
     width: 100%;
     max-width: 680px;
@@ -192,21 +193,22 @@ button#uploadImage:hover {
     max-width: 680px;
     margin: 0 auto;
     position: relative;
-    top: -20px;
+    background-color: #ffffff;
+    padding: 20px 20px 0px 20px;
 }
 
 .fileinput {
     position: absolute;
-    z-index: 100;
+    z-index: 10;
     height: 20px;
-    top: 16px;
-    left: 10px;
+    top: 36px;
+    left: 25px;
 }
 
 .filename {
     box-sizing: border-box;
-    width: 480px;
-    background-color: #FFFFFF;
+    width: 440px;
+    background-color: #EAEAEA;
     padding: 18px 20px;
     display: inline-block;
 
@@ -237,7 +239,7 @@ button#uploadImage:hover {
     width: 100%;
     max-width: 680px;
     background-color: #FFFFFF;
-    padding: 30px 30px;
+    padding: 30px 20px;
     margin: 30px auto;
 
     font-size: 18px;
@@ -270,11 +272,27 @@ button#uploadImage:hover {
     box-sizing: border-box;
     width: 100%;
     max-width: 680px;
-    margin: 30px auto;
+    margin: 0px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    position: relative;
 }
 
 #uploaded-image img {
     max-width: 100%;
+}
+
+#delete-image {
+    position: absolute;
+    top: 0px;
+    left: 4px;
+    color: #4A4A4A;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+#delete-image:hover {
+    text-decoration: underline;
 }
 
 @media only screen and (max-width: 680px) {
@@ -291,4 +309,10 @@ button#uploadImage:hover {
         display: block;
     }
 
+}
+
+@media only screen and (max-width: 380px) {
+    textarea#name {
+        height: 60px;
+    }
 }
