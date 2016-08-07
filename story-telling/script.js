@@ -55,6 +55,19 @@ $(document).ready(function() {
     // Begin listening for data
     startListening();
 
+    function generateUUID(){
+        var d = new Date().getTime();
+        if(window.performance && typeof window.performance.now === "function"){
+            d += performance.now(); //use high-precision timer if available
+        }
+        var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            var r = (d + Math.random()*16)%16 | 0;
+            d = Math.floor(d/16);
+            return (c=='x' ? r : (r&0x3|0x8)).toString(16);
+        });
+        return uuid;
+    }
+
     $('#image-upload').submit(function(event){
         event.preventDefault();
         if (!window.File || !window.FileReader || !window.FileList || !window.Blob) {
@@ -77,7 +90,7 @@ $(document).ready(function() {
             if (file.size < 10000000) {
 
                 var storageRef = firebase.storage().ref();
-                var uploadTask = storageRef.child('images/' + file.name).put(file);
+                var uploadTask = storageRef.child('images/' + generateUUID() ).put(file);
 
                 uploadTask.on('state_changed', function(snapshot){
                   // Observe state change events such as progress, pause, and resume
