@@ -15,6 +15,8 @@ body#landing {
     font-size: 20px;
     letter-spacing: 2px;
     line-height: 30px;
+
+    margin-bottom: 60px;
 }
 
 #landing h1 {
@@ -75,10 +77,20 @@ header {
     z-index: 200;
 }
 
+.float-right {
+    float: right;
+}
+
 a {
     color: inherit;
     text-decoration: none;
-    margin: 0 20px;
+    margin: 0 30px;
+}
+
+a.button-wrap {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
 }
 
 a.selected {
@@ -96,7 +108,7 @@ a:hover {
 header a {
     font-size: 16px;
     display: inline-block;
-    padding: 18px 10px 17px 10px;
+    padding: 18px 20px 17px 20px;
     margin: 0;
 }
 
@@ -201,13 +213,13 @@ button#submit {
     box-sizing: border-box;
     width: 100%;
     max-width: 680px;
-    background-color: #DADADA;
+    background-color: #8EC6BA;
     padding: 12px 20px 13px 20px;
 
     font-size: 24px;
     font-weight: 300;
     letter-spacing: 1px;
-    color: #747474;
+    color: #FFFFFF;
     text-align: center;
 
     border: none;
@@ -219,14 +231,16 @@ button#submit {
 }
 
 button#submit:hover {
-    background-color: #CACACA;
+    background-color: #78A89E;
 }
 
-button#uploadImage {
+button.inline-blue {
     box-sizing: border-box;
-    width: 200px;
+    width: 280px;
     background-color: #8CADDC;
     padding: 18px 20px 19px 20px;
+
+    margin: 10px 20px;
 
     font-size: 16px;
     font-weight: 300;
@@ -244,8 +258,15 @@ button#uploadImage {
     vertical-align: top;
 }
 
-button#uploadImage:hover {
-    background-color: #C36767;
+button#uploadImage {
+    width: 200px;
+    margin: 0;
+    font-size: 14px;
+    padding: 19px 20px;
+}
+
+button.inline-blue:hover {
+    background-color: #7793BB;
 }
 
 .input-overlay {
@@ -347,15 +368,17 @@ button#uploadImage:hover {
 
 #delete-image {
     position: absolute;
-    top: 0px;
-    left: 4px;
-    color: #4A4A4A;
-    font-size: 24px;
-    font-weight: 400;
+    top: 20px;
+    left: 20px;
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: 300;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 3px 8px;
 }
 
 #delete-image:hover {
-    text-decoration: underline;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 @media only screen and (max-width: 1040px) {
@@ -390,7 +413,11 @@ button#uploadImage:hover {
 }
 
 @media only screen and (max-width: 380px) {
-    textarea#name {
-        height: 60px;
+    textarea#name, textarea#title {
+        height: 80px;
+    }
+
+    button.inline-blue {
+        margin: 10px 0px;
     }
 }

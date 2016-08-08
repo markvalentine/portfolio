@@ -12,25 +12,25 @@
     <body>
         <header>
             <a href="http://www.zinnia.life">Zinnia</a>
-            <a href="index.html">Quincy</a>
-            <a href="stories.html">Stories</a>
-            <a class="selected" href="write-a-story.html">Write a story</a>
+            <a class="float-right" href="index.html">Quincy</a>
+            <a class="float-right" href="stories.html">Memories</a>
+            <a class="selected float-right" href="write-a-story.html">Share a Memory</a>
         </header>
 
         <div class="prompt">
-            <h2>Tell me a story</h2>
+            <h2>Share a memory of Quincy</h2>
         </div>
-        <textarea id="title" placeholder="Give your story a title"></textarea>
+        <textarea id="title" placeholder="Give this memory a tile (optional)"></textarea>
         <textarea id="name" placeholder="Your name here (don't worry, it's optional)"></textarea>
         <form id="image-upload">
             <div class="input-overlay">
-                <div class="filename">&nbsp;</div><button id="uploadImage" type="submit">Upload Image</button>
+                <div class="filename">&nbsp;</div><button class="inline-blue" id="uploadImage" type="submit">Upload Image</button>
                 <div class="fileinput"><input type="file" name="file" id="fileinput"></div>
             </div>
         </form>
         <div id="uploaded-image">
         </div>
-        <textarea id="story" placeholder="Your story goes here"></textarea>
+        <textarea id="story" placeholder="Write your memory here..."></textarea>
 
         <button id="submit">Submit</button>
 
