@@ -11,7 +11,7 @@ $(document).ready(function() {
     var nameText = $('#name');
     var storyText = $('#story');
     var submitButton = $('#submit');
-    var database = firebase.database().ref();
+    var database = firebase.database().ref().child("quincy/");
     var allStories = $('.all-stories');
     var imageURL = null;
     var imageRef = null;
