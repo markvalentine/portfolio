@@ -222,8 +222,12 @@ $(document).ready(function() {
     $('.hamburger').bind('click', showDropdown);
     $('.not-sure').bind('click', showPromptDropdown);
 
-    $(window).resize(function(event) {
-        hidePromptDropdown();
+
+    var w = $(window).width();
+    $(window).resize(function(){
+      if ($(window).width()==w) return; 
+      w = $(window).width();
+      hidePromptDropdown();
     });
 
 });

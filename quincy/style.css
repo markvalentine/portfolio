@@ -473,10 +473,15 @@ button.inline-blue:hover {
         opacity: 0;
     }
 
+    .input-overlay {
+        padding: 20px 0 0 0;
+    }
+
     .filename {
         width: 100%;
         margin-bottom: 0px;
         display: block;
+        border-width: 1px 1px 0px 1px;
     }
 
     button#uploadImage {
