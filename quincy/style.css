@@ -20,7 +20,7 @@ body#landing {
 #landing h1 {
     position: relative;
     font-size: 28px;
-    z-index: 100;
+    z-index: 300;
     background-color: #8EC6BA;
     margin: 0;
     padding: 23px 0;
