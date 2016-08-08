@@ -411,6 +411,12 @@ button.inline-blue:hover {
     margin: 10px 0;
 }
 
+.story .audio {
+    width: 100%;
+    background-color: #ffffff;
+    text-align: left;
+}
+
 #uploaded-image {
     box-sizing: border-box;
     width: 100%;

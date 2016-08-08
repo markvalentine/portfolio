@@ -37,6 +37,22 @@
         <textarea id="story" placeholder="Write your memory here..."></textarea>
         <textarea id="name" placeholder="Your name here (don't worry, it's optional)"></textarea>
 
+        <!-- <div class="container">
+            <input type="file" id="audio" onchange="playFile(this)"/>
+            <audio id="sound" controls></audio>
+            <script>
+                function playFile(obj) {
+                    var sound = document.getElementById('sound');
+                    var reader = new FileReader();
+                    reader.onload = (function(audio) {return function(e) {audio.src = e.target.result;};})(sound);
+                    reader.addEventListener('load', function() {
+                        document.getElementById("sound").play()
+                    });
+                    reader.readAsDataURL(obj.files[0]);
+                }
+            </script>
+        </div> -->
+
         <button id="submit">Submit</button>
 
 

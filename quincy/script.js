@@ -45,6 +45,10 @@ $(document).ready(function() {
             if (thisStory.title) {
                 storyString += "<h3>"+thisStory.title+"</h3>";
             }
+            //
+            if (thisStory.audioURL) {
+                storyString += "<div class=\"audio\"><audio controls src=\""+thisStory.audioURL+"\"/></div>";
+            }
             //image
             if(thisStory.imageURL) {
                 storyString += "<div class=\"centered\"><img src=\""+thisStory.imageURL+"\"></div>";
