@@ -163,4 +163,39 @@ $(document).ready(function() {
         // }
     }
 
+    
+    
+    function hideDropdown() {
+        if($('.prompt-dropdown')) {
+            $('.prompt-dropdown').animate({'height': 0}, function() {
+                $('.prompt-dropdown').remove();
+                $('.not-sure').unbind('click', hideDropdown);
+                $('.not-sure').bind('click', showDropdown);
+            });
+            $('li').each(function() {
+                $(this).animate({'opacity': 0});
+            });
+        }
+    }
+
+    function showDropdown() {
+        $('.not-sure').after("<div class=\"prompt-dropdown\"><ul><li>How would you describe Quincy to others?</li><li>What is a particularly memorable quality about Quincy?</li><li>Share a photo you have of Quincy. Why does this particular photo stand out? </li><li>How would you and Quincy normally spend time together? </li><li>Is there a particular moment/story that shines out as truly \"Quincy\"?</li><li>Think back to your first memories of Quincy. How did you meet?</li><li>What will you always remember Quincy for?</li><li>List 3 words that come to mind when thinking about Quincy. Why these?</li><li>If you had a theme song for Quincy, what would it be?</li><li>Try writing a haiku or poem for Quincy. </li></ul></div>");
+        var initialHeight =  $('.prompt-dropdown').height();
+        $('.prompt-dropdown').height(0);
+        $('.prompt-dropdown').css({'opacity': 1, 'position': 'static'});
+
+        $('.prompt-dropdown').animate({'height': initialHeight});
+        $('li').each(function() {
+            $(this).animate({'opacity': 1});
+        });
+        $('.not-sure').unbind('click', showDropdown);
+        $('.not-sure').bind('click', hideDropdown);
+    }
+
+    $('.not-sure').bind('click', showDropdown);
+
+    $(window).resize(function(event) {
+        hideDropdown();
+    });
+
 });
