@@ -31,6 +31,8 @@ $(document).ready(function() {
             $('#the-uploaded-image').remove()
             database.push({title: title, text: story, name: name, display: -1, imageURL: imageURL})
             window.location.href = "stories.html";
+        } else {
+            alert("You have to either have a picture or some text to post");
         }
     });
 
@@ -164,15 +166,15 @@ $(document).ready(function() {
     }
 
     function showDropdown() {
-        $('.hamburger').after("<nav class=\"mobile\"><a class=\"selected\" href=\"index.html\">Quincy</a><a href=\"stories.html\">Memories</a><a href=\"write-a-story.html\">Share a Memory</a></nav>");
+        $('.hamburger').after("<nav class=\"mobile\"><a href=\"index.html\">Quincy</a><a href=\"stories.html\">Memories</a><a href=\"write-a-story.html\">Share a Memory</a></nav>");
         var nav = $('nav.mobile')
         var initialHeight = nav.height();
         nav.height(0);
         nav.css({'opacity': 1});
 
-        nav.animate({'height': initialHeight});
+        nav.animate({'height': initialHeight}, 180);
         nav.children().each(function(){
-            $(this).animate({'opacity': 1});
+            $(this).animate({'opacity': 1}, 180);
         });
         $('.hamburger').unbind('click', showDropdown);
         $('.hamburger').bind('click', hideDropdown);
@@ -181,13 +183,13 @@ $(document).ready(function() {
     function hideDropdown() {
         var nav = $('nav.mobile')
         if(nav) {
-            nav.animate({'height': 0}, function() {
+            nav.animate({'height': 0}, 180, function() {
                 nav.remove();
                 $('.hamburger').unbind('click', hideDropdown);
                 $('.hamburger').bind('click', showDropdown);
             });
             nav.children().each(function(){
-                $(this).animate({'opacity': 0});
+                $(this).animate({'opacity': 0}, 180);
             });
         }
     }
