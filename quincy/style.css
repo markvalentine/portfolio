@@ -422,6 +422,7 @@ button.inline-blue:hover {
     width: 100%;
     background-color: #ffffff;
     text-align: left;
+    margin-bottom: 20px;
 }
 
 #audio-upload {
