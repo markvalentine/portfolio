@@ -138,7 +138,7 @@ $(document).ready(function() {
             var storageRef = firebase.storage().ref();
             storageRef.child(imageRef).delete().then(function() {
                 // File deleted successfully
-                $('#uploaded-image').before("<form id=\"image-upload\"><div class=\"input-overlay\"><div class=\"filename\">&nbsp;</div><button class=\"inline-blue\" id=\"uploadImage\" type=\"submit\">Upload Image</button><div class=\"fileinput\"><input type=\"file\" name=\"file\" id=\"fileinput\"></div></div></form>");
+                $('#uploaded-image').before("<form id=\"image-upload\"><div class=\"input-overlay\"><div class=\"filename\">&nbsp;</div><button class=\"inline-blue\" id=\"uploadImage\" type=\"submit\">Upload Image</button><div class=\"fileinput\"><input type=\"file\" name=\"file\" id=\"fileinput\" accept=\"image/*\"></div></div></form>");
                 $('#the-uploaded-image').remove();
                 $('#delete-image').remove();
 
