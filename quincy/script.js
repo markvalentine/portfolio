@@ -32,7 +32,7 @@ $(document).ready(function() {
             nameText.val("");
             $('#the-uploaded-image').remove()
             database.push({title: title, text: story, name: name, display: -1, imageURL: imageURL, audioURL: audioURL})
-            window.location.href = "stories.html";
+            window.location.href = "memories.html";
         } else {
             alert("You have to either have a photo, audio, or some text to post.");
         }
@@ -222,7 +222,7 @@ $(document).ready(function() {
     }
 
     function showDropdown() {
-        $('.hamburger').after("<nav class=\"mobile\"><a href=\"index.html\">Quincy</a><a href=\"stories.html\">Memories</a><a href=\"write-a-story.html\">Share a Memory</a></nav>");
+        $('.hamburger').after("<nav class=\"mobile\"><a href=\"index.html\">Quincy</a><a href=\"memories.html\">Memories</a><a href=\"share.html\">Share a Memory</a></nav>");
         var nav = $('nav.mobile')
         var initialHeight = nav.height();
         nav.height(0);

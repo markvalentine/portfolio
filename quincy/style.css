@@ -319,14 +319,14 @@ button#uploadImage {
     width: 260px;
     margin: 0;
     font-size: 14px;
-    padding: 19px 20px;
+    padding: 15px 20px;
 }
 
 button#uploadAudio {
     width: 260px;
     margin: 0;
     font-size: 14px;
-    padding: 19px 20px;
+    padding: 15px 20px;
 }
 
 button.inline-blue:hover {
@@ -347,7 +347,7 @@ button.inline-blue:hover {
     position: absolute;
     z-index: 10;
     height: 20px;
-    top: 36px;
+    top: 32px;
     left: 40px;
 }
 
@@ -355,7 +355,7 @@ button.inline-blue:hover {
     box-sizing: border-box;
     width: 380px;
     background-color: #ffffff;
-    padding: 17px 20px;
+    padding: 13px 20px;
     display: inline-block;
 
     font-size: 16px;
@@ -422,6 +422,10 @@ button.inline-blue:hover {
     width: 100%;
     background-color: #ffffff;
     text-align: left;
+}
+
+#audio-upload {
+    display: initial;
 }
 
 #uploaded-audio {
@@ -511,6 +515,10 @@ button.inline-blue:hover {
         width: 100%;
         margin-top: 0px;
         display: block;
+    }
+
+    #audio-upload {
+        display: none;
     }
 
     button#uploadAudio {
