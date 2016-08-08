@@ -163,22 +163,36 @@ $(document).ready(function() {
         // }
     }
 
-    
-    
+    function showDropdown() {
+        $('.hamburger').after("<nav class=\"mobile\"><a class=\"selected\" href=\"index.html\">Quincy</a><a href=\"stories.html\">Memories</a><a href=\"write-a-story.html\">Share a Memory</a></nav>");
+        var nav = $('nav.mobile')
+        var initialHeight = nav.height();
+        nav.height(0);
+        nav.css({'opacity': 1});
+
+        nav.animate({'height': initialHeight});
+        nav.children().each(function(){
+            $(this).animate({'opacity': 1});
+        });
+        $('.hamburger').unbind('click', showDropdown);
+        $('.hamburger').bind('click', hideDropdown);
+    }
+
     function hideDropdown() {
-        if($('.prompt-dropdown')) {
-            $('.prompt-dropdown').animate({'height': 0}, function() {
-                $('.prompt-dropdown').remove();
-                $('.not-sure').unbind('click', hideDropdown);
-                $('.not-sure').bind('click', showDropdown);
+        var nav = $('nav.mobile')
+        if(nav) {
+            nav.animate({'height': 0}, function() {
+                nav.remove();
+                $('.hamburger').unbind('click', hideDropdown);
+                $('.hamburger').bind('click', showDropdown);
             });
-            $('li').each(function() {
+            nav.children().each(function(){
                 $(this).animate({'opacity': 0});
             });
         }
     }
 
-    function showDropdown() {
+    function showPromptDropdown() {
         $('.not-sure').after("<div class=\"prompt-dropdown\"><ul><li>How would you describe Quincy to others?</li><li>What is a particularly memorable quality about Quincy?</li><li>Share a photo you have of Quincy. Why does this particular photo stand out? </li><li>How would you and Quincy normally spend time together? </li><li>Is there a particular moment/story that shines out as truly \"Quincy\"?</li><li>Think back to your first memories of Quincy. How did you meet?</li><li>What will you always remember Quincy for?</li><li>List 3 words that come to mind when thinking about Quincy. Why these?</li><li>If you had a theme song for Quincy, what would it be?</li><li>Try writing a haiku or poem for Quincy. </li></ul></div>");
         var initialHeight =  $('.prompt-dropdown').height();
         $('.prompt-dropdown').height(0);
@@ -188,14 +202,28 @@ $(document).ready(function() {
         $('li').each(function() {
             $(this).animate({'opacity': 1});
         });
-        $('.not-sure').unbind('click', showDropdown);
-        $('.not-sure').bind('click', hideDropdown);
+        $('.not-sure').unbind('click', showPromptDropdown);
+        $('.not-sure').bind('click', hidePromptDropdown);
+    }
+    
+    function hidePromptDropdown() {
+        if($('.prompt-dropdown')) {
+            $('.prompt-dropdown').animate({'height': 0}, function() {
+                $('.prompt-dropdown').remove();
+                $('.not-sure').unbind('click', hidePromptDropdown);
+                $('.not-sure').bind('click', showPromptDropdown);
+            });
+            $('li').each(function() {
+                $(this).animate({'opacity': 0});
+            });
+        }
     }
 
-    $('.not-sure').bind('click', showDropdown);
+    $('.hamburger').bind('click', showDropdown);
+    $('.not-sure').bind('click', showPromptDropdown);
 
     $(window).resize(function(event) {
-        hideDropdown();
+        hidePromptDropdown();
     });
 
 });
