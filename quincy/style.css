@@ -1,6 +1,59 @@
+body#landing {
+    margin: 0;
+    padding: 0 0 80px 0;
+    border: 0;
+    background-color: #FFFFFF;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+#landing p {
+    color: #4A4A4A;
+    text-align: left;
+    font-size: 20px;
+    letter-spacing: 2px;
+    line-height: 30px;
+}
+
+#landing h1 {
+    position: relative;
+    font-size: 28px;
+    z-index: 100;
+    background-color: #8EC6BA;
+    margin: 0;
+    padding: 23px 0;
+}
+
+#landing .container {
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+#landing .container.large {
+    max-width: 800px;
+}
+
+#landing section {
+    padding: 20px;
+}
+
+#landing section.banner {
+    background-color: #8EC6BA;
+    margin: 80px 0 30px 0;
+    color: #FFFFFF;
+    padding: 20px;
+}
+
+#landing section.banner .container {
+    max-width: 300px;
+}
+
 body {
     margin: 0;
-    padding: 0;
+    padding: 0 0 80px 0;
     border: 0;
     background-color: #EEEEEE;
     text-align: center;
@@ -28,6 +81,14 @@ a {
     margin: 0 20px;
 }
 
+a.selected {
+    opacity: 0.6;
+}
+
+a.selected:hover {
+    text-decoration: none;
+}
+
 a:hover {
     text-decoration: underline;
 }
@@ -51,7 +112,7 @@ header a {
     margin: 80px auto 0 auto;
 
     padding: 12px 20px 13px 20px;
-    background-color: #F48181;
+    background-color: #8CADDC;
     color: #FFFFFF;
 }
 
@@ -164,7 +225,7 @@ button#submit:hover {
 button#uploadImage {
     box-sizing: border-box;
     width: 200px;
-    background-color: #F48181;
+    background-color: #8CADDC;
     padding: 18px 20px 19px 20px;
 
     font-size: 16px;
@@ -208,7 +269,7 @@ button#uploadImage:hover {
 .filename {
     box-sizing: border-box;
     width: 440px;
-    background-color: #EAEAEA;
+    background-color: #efefef;
     padding: 18px 20px;
     display: inline-block;
 
@@ -256,6 +317,7 @@ button#uploadImage:hover {
 
 .story h3 {
     font-weight: 400;
+    margin-top: 0px;
 }
 
 .story .name {
@@ -266,6 +328,7 @@ button#uploadImage:hover {
     font-weight: 300;
     letter-spacing: 1px;
     color: #777777;
+    margin: 10px 0;
 }
 
 #uploaded-image {
@@ -295,6 +358,12 @@ button#uploadImage:hover {
     text-decoration: underline;
 }
 
+@media only screen and (max-width: 1040px) {
+    #landing h1 {
+        position: static;
+    }
+}
+
 @media only screen and (max-width: 680px) {
 
     .filename {
@@ -307,6 +376,15 @@ button#uploadImage:hover {
         width: 100%;
         margin-top: 0px;
         display: block;
+    }
+
+    #landing h1 {
+        font-size: 24px;
+    }
+    #landing p {
+        font-size: 18px;
+        letter-spacing: 1.2px;
+        line-height: 24px;
     }
 
 }

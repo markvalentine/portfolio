@@ -30,7 +30,7 @@ $(document).ready(function() {
             nameText.val("");
             $('#the-uploaded-image').remove()
             database.push({title: title, text: story, name: name, display: -1, imageURL: imageURL})
-            window.location.href = "../story-telling";
+            window.location.href = "stories.html";
         }
     });
 
