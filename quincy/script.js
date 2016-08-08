@@ -15,6 +15,8 @@ $(document).ready(function() {
     var allStories = $('.all-stories');
     var imageURL = null;
     var imageRef = null;
+    var audioRef = null;
+    var audioURL = null;
     var toDelete = false;
 
     submitButton.click(function(event) {
@@ -24,15 +26,15 @@ $(document).ready(function() {
         var story = storyText.val();
 
         //VALIDATE
-        if (story.length != 0 || imageURL != null) {
+        if (story.length != 0 || imageURL != null || audioURL != null) {
             titleText.val("");
             storyText.val("");
             nameText.val("");
             $('#the-uploaded-image').remove()
-            database.push({title: title, text: story, name: name, display: -1, imageURL: imageURL})
+            database.push({title: title, text: story, name: name, display: -1, imageURL: imageURL, audioURL: audioURL})
             window.location.href = "stories.html";
         } else {
-            alert("You have to either have a picture or some text to post");
+            alert("You have to either have a photo, audio, or some text to post.");
         }
     });
 
@@ -58,7 +60,7 @@ $(document).ready(function() {
                 storyString += "<p>"+thisStory.text.replace(/\n/g, "<br/>")+"</p>";
             }
             //author
-            if (thisStory.name.length != 0) {
+            if (thisStory.name) {
                 storyString += "<div class=\"name\">- "+thisStory.name+"</div>";
             }
             storyString += "</div>";
@@ -158,6 +160,56 @@ $(document).ready(function() {
             }); 
         }
     }
+
+    $('body').on('submit', '#audio-upload', function() {
+        event.preventDefault();
+        if (!window.File || !window.FileReader || !window.FileList || !window.Blob) {
+            alert('The File APIs are not fully supported in this browser.');
+            return;
+        }
+
+        input = document.getElementById('audioInput');
+        if (!input) {
+            alert("Um, couldn't find the fileinput element.");
+        }else if (!input.files) {
+            alert("This browser doesn't seem to support the `files` property of file inputs.");
+        }
+        else if (!input.files[0]) {
+            alert("Please select a file before clicking 'Load'");
+        }
+        else {
+            file = input.files[0];
+            console.log(file);
+            if (file.size < 10000000) {
+
+                var storageRef = firebase.storage().ref();
+                audioRef = 'audio/' + generateUUID()
+                var audRef = storageRef.child(audioRef);
+                var uploadTask = audRef.put(file);
+
+                uploadTask.on('state_changed', function(snapshot){
+                  // Observe state change events such as progress, pause, and resume
+                  var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                  console.log(progress);
+                  $('#uploadAudio').html(progress.toFixed(0) + "%");
+                  // See below for more detail
+                }, function(error) {
+                  console.log('fucked up');
+                  console.log(error);
+                }, function() {
+                  var downloadURL = uploadTask.snapshot.downloadURL;
+                  // toDelete = true;
+                  audioURL = downloadURL;
+                  $('#uploaded-audio').css({'padding': '20px 20px 0 20px'});
+                  $('#uploaded-audio').append("<div class=\"audio\"><audio controls src=\""+downloadURL+"\"/></div>");
+                  // input.value = "";
+                  // $('#uploadImage').html("Upload Image");
+                  $('#audio-upload').remove();
+                });
+            }
+
+        }
+    });
 
     window.onbeforeunload = function() {
         // console.log("askdfha;sdjflkasd");

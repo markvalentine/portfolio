@@ -316,7 +316,14 @@ button.inline-blue {
 }
 
 button#uploadImage {
-    width: 200px;
+    width: 260px;
+    margin: 0;
+    font-size: 14px;
+    padding: 19px 20px;
+}
+
+button#uploadAudio {
+    width: 260px;
     margin: 0;
     font-size: 14px;
     padding: 19px 20px;
@@ -346,7 +353,7 @@ button.inline-blue:hover {
 
 .filename {
     box-sizing: border-box;
-    width: 440px;
+    width: 380px;
     background-color: #ffffff;
     padding: 17px 20px;
     display: inline-block;
@@ -415,6 +422,16 @@ button.inline-blue:hover {
     width: 100%;
     background-color: #ffffff;
     text-align: left;
+}
+
+#uploaded-audio {
+    box-sizing: border-box;
+    max-width: 680px;
+    margin: 0px auto;
+    width: 100%;
+    background-color: #ffffff;
+    text-align: left;
+    padding: 0px;
 }
 
 #uploaded-image {
@@ -491,6 +508,12 @@ button.inline-blue:hover {
     }
 
     button#uploadImage {
+        width: 100%;
+        margin-top: 0px;
+        display: block;
+    }
+
+    button#uploadAudio {
         width: 100%;
         margin-top: 0px;
         display: block;
